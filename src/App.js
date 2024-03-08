@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom"; // Import BrowserRouter and Route
+import "./App.css";
+import LandingPage from "./page/LandingPage";
+import SingleProfile from "./page/SingleProfile";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense>
+      <Routes>
+        {/* Define routes for each component */}
+        <Route path="/" exact element={<LandingPage />} />
+        <Route path="/SingleProfile/:id" element={<SingleProfile />} />
+        {/* Assuming you have dynamic routing for profiles */}
+      </Routes>
+    </Suspense>
   );
-}
+};
 
 export default App;
