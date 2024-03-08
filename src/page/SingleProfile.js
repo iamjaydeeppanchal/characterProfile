@@ -92,6 +92,8 @@ const SingleProfile = () => {
           ))}
         </div>
       </div>
+
+      
     </div>
   );
 };
